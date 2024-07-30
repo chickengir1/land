@@ -78,25 +78,3 @@ svg .circle-group > text {
     text-anchor: start;
 }
 
-/* 모바일 미디어 쿼리 */
-@media (max-width: 768px) {
-    svg {
-        mask-position: -500px 50px, 0px 150px;
-    }
-
-    svg .circle-group > text {
-        font-size: 18px; /* 글자 크기를 줄임 */
-    }
-
-    .circle-group .circle-desc-head {
-        font-size: 1.8vh; /* 글자 크기를 키움 */
-    }
-
-    .circle-group .circle-desc-text {
-        font-size: 2vh; /* 글자 크기를 키움 */
-    }
-
-    .circle-obj {
-        stroke-width: 4px; /* 테두리 두께를 줄임 */
-    }
-}

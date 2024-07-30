@@ -28,17 +28,17 @@ let animationFunctions = [];
 let textList = [
   {
     text: ["daejin", "university"],
-    in: [an.SLIDE_DOWN, an.SLIDE_UP],
+    in: [an.SLIDE_RIGHT, an.SLIDE_UP],
     out: [an.SLIDE_DOWN, an.SLIDE_UP],
   },
   {
     text: ["ksae", "baja", "mobility"],
-    in: [an.SLIDE_RIGHT, an.SLIDE_DOWN, an.SLIDE_LEFT],
+    in: [an.SLIDE_RIGHT, an.FADE_IN, an.SLIDE_LEFT],
     out: [an.SLIDE_RIGHT, an.FADE_OUT, an.SLIDE_LEFT],
   },
   {
     text: ["super", "beetle"],
-    in: [an.FADE_IN, an.FADE_IN],
+    in: [an.SLIDE_UP, an.FADE_IN],
     out: [an.SLIDE_RIGHT, an.SLIDE_LEFT],
   },
 ];

@@ -28,15 +28,23 @@ class Path {
   };
 
   calculatePoints = () => {
+    let widthFactor = window.innerWidth <= 768 ? 4 : 1;
+    let centerX = window.innerWidth * 0.75;
     this.points = this.percents.map((point) => [
-      (point[0] / 100) * window.innerWidth,
+      centerX +
+        (point[0] / 100) * window.innerWidth * widthFactor -
+        (window.innerWidth * widthFactor) / 2,
       (point[1] / 100) * window.innerHeight,
     ]);
   };
 
   generatePath() {
     this.calculatePoints();
-    let { points, control } = this;
+    let { points } = this;
+    let control = this.control;
+    if (window.innerWidth <= 768) {
+      control = this.control / 2;
+    }
     let path = document.createElementNS(SVG_DOC, "path");
     let curve = `M ${points[0][0]} ${points[0][1]} S `;
     this.points.map((point) => {
@@ -50,6 +58,7 @@ class Path {
   render() {
     let { svgId, color, width, cap, fill } = this;
     const svg = document.getElementById(svgId);
+
     let path = this.generatePath();
     path.setAttribute("stroke", color);
     path.setAttribute("stroke-width", width);
