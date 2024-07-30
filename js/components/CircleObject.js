@@ -25,7 +25,7 @@ class CircleObject {
     this.radius = radius || 10;
     this.iconCode = iconCode || "";
     this.className = className || "circle-obj";
-    this.positions = positions || [15, 30, 45, 60, 75];
+    this.positions = positions || [100, 30, 45, 60, 75];
     this.positionIndex = positionIndex || 0;
     this.description = description;
     this.descriptionMargin = descriptionMargin || { dx: -60, dy: 60 };
