@@ -30,7 +30,7 @@
             <a target="_blank" href="https://www.ksae.org/jajak/">BAJA</a>
           </li>
           <li>
-            <a target="_blank" href="https://github.com/Dev-Tarek">가입하기</a>
+            <a href="contact" id="open-modal">가입하기</a>
           </li>
         </ul>
       </navbar>
@@ -42,6 +42,34 @@
         </div>
         <svg id="animated-path" xmlns="http://www.w3.org/2000/svg"></svg>
       </div>
+      <!-- 모달 작업해야함 -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h2>SuperBeetle(테스트 중)</h2>
+          <div class="modal-info">
+            <p>
+              <strong>Contact : </strong>
+              <span id="president-name">이름</span>
+            </p>
+            <p>
+              <strong>Contact : </strong>
+              <span id="president-contact">010-1234-5678</span>
+            </p>
+            <p>
+              <strong>소개 : </strong>
+              <span id="club-description"
+                >자동차 동아리 SuperBeetle입니다.</span
+              >
+            </p>
+            <p>
+              <strong>제출 후 심사 기간 : </strong>
+              <span id="joining-period">1주일</span>
+            </p>
+          </div>
+          <button id="close-modal">닫기</button>
+        </div>
+      </div>
       <footer>
         <p>
           developed by
@@ -51,6 +79,37 @@
         </p>
       </footer>
     </div>
-    <script type="module" src="js/index.js"></script>
+    <script defer type="module" src="js/index.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        // 모달 엘리먼트 가져오기
+        const modal = document.getElementById("modal");
+        const openModalButton = document.getElementById("open-modal");
+        const closeButton = document.querySelector(".close-button");
+        const closeModalButton = document.getElementById("close-modal");
+
+        // 모달 열기
+        openModalButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          modal.style.display = "block";
+        });
+
+        // 모달 닫기
+        closeButton.addEventListener("click", function () {
+          modal.style.display = "none";
+        });
+
+        closeModalButton.addEventListener("click", function () {
+          modal.style.display = "none";
+        });
+
+        // 모달 외부 클릭 시 닫기
+        window.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        });
+      });
+    </script>
   </body>
 </html>
