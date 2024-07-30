@@ -100,7 +100,7 @@ let circles = [
     description: { title: "Notion", text: "Latest Projects" },
   },
   {
-    iconCode: "&#xf549;",
+    iconCode: "&#xf19d;",
     path: path,
     description: { title: "University", text: "Another Experience" },
   },

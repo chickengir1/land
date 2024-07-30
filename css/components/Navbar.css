@@ -43,3 +43,25 @@ navbar ul li a::after{
 navbar ul li a:hover::after{
     width: 100%;
 }
+
+@media (max-width: 768px) {
+    navbar {
+        top: 16px;
+        left: 24px;
+    }
+
+    navbar ul {
+        flex-direction: row;
+    }
+
+    navbar ul li {
+        margin-right: 0;
+        margin-bottom: 12px;
+        padding: 0.3rem;
+        font-size: 0.5rem; /* 글자 크기를 약간 키움 */
+    }
+
+    navbar ul li a::after {
+        height: 2px; /* 하단선 두께를 약간 두껍게 */
+    }
+}
