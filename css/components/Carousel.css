@@ -34,13 +34,31 @@
 }
 
 @media only screen and (max-width: 1024px) {
+    .carousel-div {
+        top: 30%; /* 모바일 환경에서 top 위치 조정 */
+    }
+
     .carousel-div img {
         width: 30%;
+        top: 30%; 
+    }
+
+    .carousel-div p {
+        top: 120px; 
     }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
+    .carousel-div {
+        top: 40%; 
+    }
+
     .carousel-div img {
         width: 80%;
+        top: 32%; 
+    }
+
+    .carousel-div p {
+        top: 140px; 
     }
 }

@@ -4,13 +4,15 @@
     display: flex;
     justify-content: center;
 }
-.animation-block{
+
+.animation-block {
     display: flex;
     position: fixed;
     top: 100px;
     padding: 16px;
     align-items: center;
 }
+
 .animation-block .text-animation {
     margin: 0px;
     padding: 8px;
@@ -21,13 +23,27 @@
     text-transform: uppercase;
     overflow: hidden;
 }
+
 .animation-block .text-animation p {
     margin: 0;
     transition: all var(--animated-text-transition-speed) ease-in-out;
 }
+
 .animation-block .text-animation:nth-child(even) {
     font-weight: 600;
     font-size: 8vw;
     height: 8vw;
     line-height: 8vw;
+}
+
+@media only screen and (max-width: 1024px) {
+    .animation-block {
+        top: 150px; 
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .animation-block {
+        top: 200px;
+    }
 }

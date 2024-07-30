@@ -13,7 +13,7 @@ navbar ul {
 }
 navbar ul li {
     margin-right: 24px;
-    font-size: 1.4vh;
+    font-size: 2.2vh;
     font-weight: 600;
     text-transform: uppercase;
     user-select: none;
@@ -57,8 +57,7 @@ navbar ul li a:hover::after{
     navbar ul li {
         margin-right: 0;
         margin-bottom: 12px;
-        padding: 0.3rem;
-        font-size: 0.5rem;
+        font-size: 0.8rem;
     }
 
     navbar ul li a::after {
