@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 @import './components/Navbar.css';
 @import './components/AnimatedText.css';
 @import './components/Carousel.css';
@@ -50,66 +51,171 @@ footer p a {
     text-decoration-line: none;
     color: #777;
 }
-
-/* 모달 스타일 */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 9999; 
+    display: none;
+    position: fixed;
+    z-index: 9999;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0, 0, 0); 
-    background-color: rgba(0, 0, 0, 0.4); 
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; 
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    animation: bounce-in-top 1.1s both;
+}
+
+.background {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; 
+    border: none;
+    width: 80%;
     max-width: 500px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .close-button {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    position: relative;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.modal-content > h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.close-button {
     color: #aaa;
-    float: right;
+    position: absolute;
+    right: 20px;
+    top: 20px;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close-button:hover,
-  .close-button:focus {
-    color: black;
-    text-decoration: none;
     cursor: pointer;
-  }
-  
-  .modal-info p {
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+}
+
+.modal-info p {
     margin: 10px 0;
-  }
-  
-  .modal-info p strong {
-    display: inline-block;
-    width: 150px;
-  }
-  
-  #close-modal {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #5cb85c;
-    color: white;
     font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
+    color: #333;
+    line-height: 2;
+}
+
+.modal-info span {
+    font-size: 16px;
+    color: #333;
+    line-height: 2;
+    font-style: italic; 
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif; 
   }
   
-  #close-modal:hover {
-    background-color: #4cae4c;
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px; 
+    line-height: 1.5;
+}
+
+.contact-info strong {
+    font-size: 1.2em;
+    color: #4a90e2;
+    margin-right: 10px;
+}
+
+.note {
+    font-size: 0.1em;
+    color: #555;
+}
+
+.form-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-btn button {
+    padding: 10px 20px;
+    background-color: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-btn button:hover {
+    background-color: #005bb5;
+}
+
+  @keyframes bounce-in-top {
+    0% {
+        -webkit-transform: rotateX(-100deg);
+                transform: rotateX(-100deg);
+        -webkit-transform-origin: top;
+                transform-origin: top;
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        -webkit-transform-origin: top;
+                transform-origin: top;
+        opacity: 1;
+      }
   }
+  
+  @media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+        margin: 20% auto;
+    }
+
+    .modal-content > h2 {
+        font-size: 20px;
+    }
+
+    .close-button {
+        font-size: 24px;
+    }
+
+    .modal-info p {
+        font-size: 14px;
+    }
+
+    .contact-info {
+        font-size: 16px;
+    }
+
+    .contact-info strong {
+        font-size: 1.2em;
+    }
+
+    .form-btn button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

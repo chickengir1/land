@@ -43,43 +43,48 @@
         </div>
         <svg id="animated-path" xmlns="http://www.w3.org/2000/svg"></svg>
       </div>
-      <!-- 모달 작업해야함 -->
+      <div class="background"></div>
       <div id="modal" class="modal">
         <div class="modal-content">
           <span class="close-button">&times;</span>
-          <h2>SuperBeetle(테스트 중)</h2>
+          <h2>SuperBeetle</h2>
           <div class="modal-info">
-            <p>
-              <strong>Contact : </strong>
-              <span id="president-name">이름</span>
+            <p class="contact-info">
+              <strong>연락처 <i class="fa-solid fa-phone"></i></strong
+              ><span>010-1234-5678</span>
+            </p>
+            <p class="contact-info">
+              <strong>이메일 <i class="fa-solid fa-envelope"></i></strong>
+              <span>example@example.com</span>
             </p>
             <p>
-              <strong>Contact : </strong>
-              <span id="president-contact">010-1234-5678</span>
+              <strong>딱정벌레</strong>에 관심을 가져주셔서 감사합니다! 지원을
+              원하시는 분들은
+              <strong>이름, 학번, 전화번호, 자기소개, 지원 동기</strong>를
+              포함하여 이메일 또는 문자로 보내주시기 바랍니다.
             </p>
             <p>
-              <strong>소개 : </strong>
-              <span id="club-description"
-                >자동차 동아리 SuperBeetle입니다.</span
-              >
+              <strong> 이메일</strong> 혹은 <strong>문자 메세지</strong>를
+              제출한 지원자분 들을 대상으로 동아리 차원에서 확인 후 개별적으로
+              연락드리겠습니다. <strong>문의사항</strong>이 있으시면 언제든지
+              명시된 연락처나 이메일로 연락 바랍니다.
             </p>
-            <p>
-              <strong>제출 후 심사 기간 : </strong>
-              <span id="joining-period">1주일</span>
+            <p class="note">
+              <strong>접수 후, 문자 확인까지 시간이 소요될 수 있습니다.</strong>
             </p>
+            <div class="form-btn">
+              <button type="button">확인</button>
+            </div>
           </div>
-          <button id="close-modal">닫기</button>
         </div>
       </div>
-      <footer>
-        <p>
-          developed by
-          <a target="_blank" href="https://github.com/chickengir1"
-            >SuperBeetle</a
-          >
-        </p>
-      </footer>
     </div>
+    <footer>
+      <p>
+        developed by
+        <a target="_blank" href="https://github.com/chickengir1">SuperBeetle</a>
+      </p>
+    </footer>
     <script defer type="module" src="js/index.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", (event) => {
@@ -87,29 +92,36 @@
         const modal = document.getElementById("modal");
         const openModalButton = document.getElementById("open-modal");
         const closeButton = document.querySelector(".close-button");
-        const closeModalButton = document.getElementById("close-modal");
+        const closeModalButton = document.querySelector(".form-btn button"); // 수정: 정확한 버튼 선택자
+        const background = document.querySelector(".background");
+
+        const backgroundBlur = () => {
+          background.style.display = "block";
+        };
+
+        const backgroundClear = () => {
+          background.style.display = "none";
+        };
 
         // 모달 열기
         openModalButton.addEventListener("click", function (e) {
           e.preventDefault();
           modal.style.display = "block";
+          backgroundBlur(); // 수정: 함수 이름 일치
+          document.body.classList.add("modal-open");
+          document.documentElement.classList.add("modal-open");
         });
 
         // 모달 닫기
-        closeButton.addEventListener("click", function () {
+        const closeModal = () => {
           modal.style.display = "none";
-        });
+          backgroundClear(); // 수정: 함수 이름 일치
+          document.body.classList.remove("modal-open");
+          document.documentElement.classList.remove("modal-open");
+        };
 
-        closeModalButton.addEventListener("click", function () {
-          modal.style.display = "none";
-        });
-
-        // 모달 외부 클릭 시 닫기
-        window.addEventListener("click", function (e) {
-          if (e.target === modal) {
-            modal.style.display = "none";
-          }
-        });
+        closeButton.addEventListener("click", closeModal);
+        closeModalButton.addEventListener("click", closeModal);
       });
     </script>
   </body>
