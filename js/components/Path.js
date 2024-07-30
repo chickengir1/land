@@ -29,7 +29,7 @@ class Path {
 
   calculatePoints = () => {
     let widthFactor = window.innerWidth <= 768 ? 4 : 1;
-    let centerX = window.innerWidth * 0.75;
+    let centerX = window.innerWidth * (window.innerWidth <= 768 ? 1.1 : 0.75);
     this.points = this.percents.map((point) => [
       centerX +
         (point[0] / 100) * window.innerWidth * widthFactor -
@@ -43,11 +43,11 @@ class Path {
     let { points } = this;
     let control = this.control;
     if (window.innerWidth <= 768) {
-      control = this.control / 2;
+      control += 300;
     }
     let path = document.createElementNS(SVG_DOC, "path");
     let curve = `M ${points[0][0]} ${points[0][1]} S `;
-    this.points.map((point) => {
+    points.forEach((point) => {
       curve += `${point[0] - control} ${point[1]} ${point[0]} ${point[1]} `;
     });
     this.curve = curve;
