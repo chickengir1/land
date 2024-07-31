@@ -98,6 +98,12 @@ const openModal = (e) => {
   document.documentElement.classList.add("modal-open");
 };
 
+// URL 열기 함수 정의
+const openURL = (url) => (e) => {
+  e.preventDefault();
+  window.open(url, "_blank");
+};
+
 // Circle Objects
 let circles = [
   {
@@ -108,6 +114,7 @@ let circles = [
       text: "Automobile Club",
       link: { url: "https://super-beetle.vercel.app/", label: "Home" },
     },
+    clickHandler: openURL("https://super-beetle.vercel.app/"),
   },
   {
     iconCode: "&#xf02d;",
@@ -115,8 +122,9 @@ let circles = [
     description: {
       title: "Notion",
       text: "Latest Projects",
-      link: { url: "https://www.notion.so", label: "notion" },
+      link: { url: "https://www.notion.so", label: "Notion" },
     },
+    clickHandler: openURL("https://www.notion.so"),
   },
   {
     iconCode: "&#xf19d;",
@@ -129,6 +137,7 @@ let circles = [
         label: "University",
       },
     },
+    clickHandler: openURL("https://camde.daejin.ac.kr/camde/index.do"),
   },
   {
     iconCode: "&#xf167;",
@@ -141,6 +150,7 @@ let circles = [
         label: "Highlights",
       },
     },
+    clickHandler: openURL("https://www.youtube.com/watch?v=51e-wu1z_uA"),
   },
   {
     iconCode: "&#xf27a;",
@@ -152,6 +162,7 @@ let circles = [
     clickHandler: openModal,
   },
 ];
+
 let circlesGroup = document.createElementNS(SVG_DOC, "g");
 circlesGroup.setAttribute("class", CIRCLE_OBJECTS_GROUP_CLASS);
 document.getElementById(ROOT_SVG_ID).appendChild(circlesGroup);
