@@ -31,13 +31,13 @@ svg path {
 }
 
 svg .circle-group {
-    cursor: pointer;
     transition: offset-distance var(--circle-transition-speed) ease-in-out, opacity 0.2s ease-in-out;
 }
 
 svg .circle-group > text {
     opacity: 0;
     fill: #fff;
+    cursor: pointer;
     font-family: FontAwesome;
     font-size: 24px;
     text-anchor: middle;

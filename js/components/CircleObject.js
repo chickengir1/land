@@ -79,7 +79,7 @@ class CircleObject {
   }
 
   renderDescriptionText() {
-    let { title, text } = this.description;
+    let { title, text, link } = this.description;
     let { dx, dy } = this.descriptionMargin;
     let descriptionGroup = document.createElementNS(SVG_DOC, "g");
     descriptionGroup.style.offsetPath = `path('${this.path.getPathCurve()}')`;
@@ -94,14 +94,27 @@ class CircleObject {
       class: "circle-desc-head",
       style: `font-size: ${headFontSize}`,
     });
+
     let descriptionText = createSVGText(text, {
       dx: `${dx}px`,
       dy: `${dy + 18}px`,
       class: "circle-desc-text",
       style: `font-size: ${textFontSize}`,
     });
-    descriptionGroup.appendChild(descriptionHead);
-    descriptionGroup.appendChild(descriptionText);
+
+    if (link) {
+      let linkElement = document.createElementNS(SVG_DOC, "a");
+      linkElement.setAttribute("href", link.url);
+      linkElement.setAttribute("target", "_blank");
+
+      linkElement.appendChild(descriptionText);
+      descriptionGroup.appendChild(descriptionHead);
+      descriptionGroup.appendChild(linkElement);
+    } else {
+      descriptionGroup.appendChild(descriptionHead);
+      descriptionGroup.appendChild(descriptionText);
+    }
+
     this.parentGroup.appendChild(descriptionGroup);
     this.descriptionGroup = descriptionGroup;
   }
@@ -179,10 +192,10 @@ class CircleObject {
   }
 
   registerListeners() {
-    let { parentGroup } = this;
+    let { parentGroup, clickHandler } = this;
     parentGroup.addEventListener("mouseenter", (e) => this.activateCircle());
     parentGroup.addEventListener("mouseleave", (e) => this.resetCircle());
-    parentGroup.addEventListener("click", (e) => this.clickHandler());
+    parentGroup.addEventListener("click", (e) => this.clickHandler(e));
   }
 }
 

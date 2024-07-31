@@ -87,32 +87,69 @@ let path = new Path(ROOT_SVG_ID, pathPointsPercents, {
 });
 path.render();
 
+// open modal
+const openModal = (e) => {
+  e.preventDefault();
+  const modal = document.getElementById("modal");
+  const background = document.querySelector(".background");
+  modal.style.display = "block";
+  background.style.display = "block";
+  document.body.classList.add("modal-open");
+  document.documentElement.classList.add("modal-open");
+};
+
 // Circle Objects
 let circles = [
   {
     iconCode: "&#xf1b9;",
     path: path,
-    description: { title: "SuperBeetle", text: "Automobile Club" },
+    description: {
+      title: "SuperBeetle",
+      text: "Automobile Club",
+      link: { url: "https://super-beetle.vercel.app/", label: "Home" },
+    },
   },
   {
     iconCode: "&#xf02d;",
     path: path,
-    description: { title: "Notion", text: "Latest Projects" },
+    description: {
+      title: "Notion",
+      text: "Latest Projects",
+      link: { url: "https://www.notion.so", label: "notion" },
+    },
   },
   {
     iconCode: "&#xf19d;",
     path: path,
-    description: { title: "University", text: "Another Experience" },
+    description: {
+      title: "University",
+      text: "Another Experience",
+      link: {
+        url: "https://camde.daejin.ac.kr/camde/index.do",
+        label: "University",
+      },
+    },
   },
   {
     iconCode: "&#xf167;",
     path: path,
-    description: { title: "YouTube", text: "Tournament Highlights" },
+    description: {
+      title: "YouTube",
+      text: "Tournament Highlights",
+      link: {
+        url: "https://www.youtube.com/watch?v=51e-wu1z_uA",
+        label: "Highlights",
+      },
+    },
   },
   {
     iconCode: "&#xf27a;",
     path: path,
-    description: { title: "Contact", text: "Would you like to join us?" },
+    description: {
+      title: "Contact",
+      text: "Would you like to join us?",
+    },
+    clickHandler: openModal,
   },
 ];
 let circlesGroup = document.createElementNS(SVG_DOC, "g");
