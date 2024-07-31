@@ -107,7 +107,7 @@ const openURL = (url) => (e) => {
 // Circle Objects
 let circles = [
   {
-    iconCode: "&#xf1b9;",
+    iconCode: "",
     path: path,
     description: {
       title: "SuperBeetle",
@@ -117,7 +117,7 @@ let circles = [
     clickHandler: openURL("https://super-beetle.vercel.app/"),
   },
   {
-    iconCode: "&#xf02d;",
+    iconCode: "",
     path: path,
     description: {
       title: "Notion",
@@ -127,7 +127,7 @@ let circles = [
     clickHandler: openURL("https://www.notion.so"),
   },
   {
-    iconCode: "&#xf19d;",
+    iconCode: "",
     path: path,
     description: {
       title: "University",
@@ -140,7 +140,7 @@ let circles = [
     clickHandler: openURL("https://camde.daejin.ac.kr/camde/index.do"),
   },
   {
-    iconCode: "&#xf167;",
+    iconCode: "",
     path: path,
     description: {
       title: "YouTube",
@@ -153,7 +153,7 @@ let circles = [
     clickHandler: openURL("https://www.youtube.com/watch?v=51e-wu1z_uA"),
   },
   {
-    iconCode: "&#xf27a;",
+    iconCode: "",
     path: path,
     description: {
       title: "Contact",
