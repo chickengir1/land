@@ -204,7 +204,9 @@ footer p a {
 
     .modal-info p {
         font-size: 14px;
-        margin-top: 10px;
+    }
+    .modal-info span {
+        margin-top: 4px;
     }
 
     .contact-info {
